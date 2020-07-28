@@ -1,9 +1,7 @@
 pull_request_rules:
-  - name: automatic merge master > develop
+  - name: automatic update master > develop
     conditions:
-      - "#approved-reviews-by>=10"
       - base=master
       - head=develop
     actions:
-      merge:
-        method: merge
+      update: {}
