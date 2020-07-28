@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: automatic merge master > develop
+    conditions:
+      - "#approved-reviews-by>=10"
+      - base=master
+      - head=develop
+    actions:
+      merge:
+        method: merge
