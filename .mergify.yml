@@ -1,7 +1,24 @@
 pull_request_rules:
-  - name: automatic update master > develop
+  - name: automatic merge hotfix > master when reviewed and backport to develop
     conditions:
+      - "#approved-reviews-by>=1"
       - base=master
-      - head=develop
+      - head~=^hotfix/
     actions:
-      update: {}
+      merge:
+        method: merge
+      backport:
+        branches:
+          - develop
+      delete_head_branch:
+        force: false
+
+  - name: automatic merge hotfix > develop
+    conditions:
+      - base=develop
+      - head~=^hotfix/
+    actions:
+      merge:
+        method: merge
+      delete_head_branch:
+        force: false
