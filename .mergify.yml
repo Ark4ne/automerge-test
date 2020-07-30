@@ -1,7 +1,8 @@
 pull_request_rules:
   - name: automatic merge hotfix > master when reviewed and backport to develop
     conditions:
-      - "#approved-reviews-by>=1"
+      - label=backport
+      - merged
       - base=master
       - head~=^hotfix/
     actions:
