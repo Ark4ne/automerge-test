@@ -7,7 +7,7 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-      copy:
+      backport:
         branches:
           - develop
 
