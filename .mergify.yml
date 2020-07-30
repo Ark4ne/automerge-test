@@ -11,9 +11,9 @@ pull_request_rules:
         branches:
           - develop
 
-  - name: automatic merge hotfix > develop
+  - name: automatic merge pr from mergfiy on develop
     conditions:
-      - label=bot
+      - author~=^mergify
       - base=develop
     actions:
       merge:
